@@ -23,6 +23,10 @@ public class Person {
         return new Person(fn, ln);
     }
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
     public void setPersonDetails(final String email, final Double age) {
         if (isNull(age) || age <= 0) {
             throw new PersonUpdateFailedException("Age has to be positive");
