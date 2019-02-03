@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AssertionsComparisonTest {
 
-    final String EXPECTED = "I_love_sda";
+    private final String EXPECTED = "I_love_sda";
 
     @Test
     void junitAssertions() {

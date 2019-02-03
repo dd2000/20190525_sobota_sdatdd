@@ -1,4 +1,4 @@
-package pl.sdacademy.simulations;
+package pl.sdacademy.database;
 
 import pl.sdacademy.exceptions.DatabaseConnectionException;
 
