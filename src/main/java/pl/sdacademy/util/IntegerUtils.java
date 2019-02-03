@@ -22,6 +22,10 @@ public class IntegerUtils {
                 .findFirst();
     }
 
+    public boolean isEven(final int number) {
+        return number % 2 == 0;
+    }
+
     private List<Integer> toDigitsList(int number) {
         final List<Integer> digits = new ArrayList<>();
         while (number > 10) {
