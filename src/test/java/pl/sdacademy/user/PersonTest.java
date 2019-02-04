@@ -27,6 +27,6 @@ class PersonTest {
         assertThat(person.getFullName())
                 .startsWith(FIRST_NAME)
                 .endsWith(LAST_NAME)
-                .contains("");
+                .contains(" ");
     }
 }
