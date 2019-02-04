@@ -1,6 +1,6 @@
 package pl.sdacademy.database;
 
-import pl.sdacademy.exceptions.DatabaseConnectionException;
+import pl.sdacademy.exceptions.DatabaseStoreException;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class DatabaseStore {
 
     public DatabaseStore(final DatabaseConnection databaseConnection) {
         if (!databaseConnection.isOpen()) {
-            throw new DatabaseConnectionException("Database store has to be initialized with an opened connection");
+            throw new DatabaseStoreException("Database store has to be initialized with an opened connection");
         }
         savedValues = new HashSet<>();
     }
@@ -34,4 +34,6 @@ public class DatabaseStore {
     public Set<String> getData() {
         return Collections.unmodifiableSet(savedValues);
     }
+
+
 }
