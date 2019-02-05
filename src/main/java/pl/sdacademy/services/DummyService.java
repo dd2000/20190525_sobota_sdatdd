@@ -2,15 +2,17 @@ package pl.sdacademy.services;
 
 public class DummyService {
 
-    private TransformationService transformationService;
+    private BeatifyService beatifyService;
+    private DunderService dunderService;
 
-    public DummyService(final TransformationService transformationService) {
-        this.transformationService = transformationService;
+    public DummyService(final BeatifyService beatifyService, final DunderService dunderService) {
+        this.beatifyService = beatifyService;
+        this.dunderService = dunderService;
     }
 
     public String dummifyString(final String value) {
-        final String tranformed = transformationService.beautifyValue(value);
+        final String transformed = beatifyService.beautifyValue(value);
 
-        return transformationService.dunderValue(tranformed);
+        return dunderService.dunderValue(transformed);
     }
 }
