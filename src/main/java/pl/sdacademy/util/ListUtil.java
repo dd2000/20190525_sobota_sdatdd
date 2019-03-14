@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class ListUtil {
 
@@ -22,5 +23,11 @@ public class ListUtil {
         final List<String> copiedList = new ArrayList<>(source);
         Collections.reverse(copiedList);
         return copiedList;
+    }
+
+    public static List<Integer> doubleValues(final List<Integer> valueListToDouble) {
+        return valueListToDouble.stream()
+                .map(value -> value * 2)
+                .collect(Collectors.toList());
     }
 }
