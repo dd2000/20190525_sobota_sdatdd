@@ -30,4 +30,11 @@ public class ListUtil {
                 .map(value -> value * 2)
                 .collect(Collectors.toList());
     }
+
+    public static List<Integer> doubleInputValue(final List<Integer> valueListToDouble) {
+        for (int index = 0; index < valueListToDouble.size(); index++) {
+            valueListToDouble.set(index, valueListToDouble.get(index) * 2);
+        }
+        return valueListToDouble;
+    }
 }
