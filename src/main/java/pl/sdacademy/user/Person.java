@@ -1,6 +1,9 @@
 package pl.sdacademy.user;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.sdacademy.exceptions.PersonUpdateFailedException;
 
 import java.util.Optional;
@@ -8,11 +11,14 @@ import java.util.Optional;
 import static java.util.Objects.isNull;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Person {
     private String firstName;
     private String lastName;
     private String email;
-    private Double age;
+    private Integer age;
 
     private Person(final String firstName, final String lastName) {
         this.firstName = firstName;
@@ -27,7 +33,7 @@ public class Person {
         return firstName + " " + lastName;
     }
 
-    public void setPersonDetails(final String email, final Double age) {
+    public void setPersonDetails(final String email, final Integer age) {
         if (isNull(age) || age <= 0) {
             throw new PersonUpdateFailedException("Age has to be positive");
         }
