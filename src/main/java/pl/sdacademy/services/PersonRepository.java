@@ -5,6 +5,7 @@ import pl.sdacademy.user.Person;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PersonRepository {
 
@@ -44,6 +45,12 @@ public class PersonRepository {
 
     public List<Person> getPersonList() {
         return personList;
+    }
+
+    public List<Person> getPersonsWithPolishEmail() {
+        return personList.stream()
+                .filter(person -> person.getEmail().contains(".pl"))
+                .collect(Collectors.toList());
     }
 }
 
