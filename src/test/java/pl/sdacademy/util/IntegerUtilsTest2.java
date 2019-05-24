@@ -22,4 +22,9 @@ class IntegerUtilsTest2 {
     void bigNumberShouldBeEvent() {
         assertThat(integerUtils.isEven(432311316)).isTrue();
     }
+
+    @Test
+    void shouldGetFirstEvenDigit() {
+        System.out.println(integerUtils.getLastEvenDigit(12345));
+    }
 }
