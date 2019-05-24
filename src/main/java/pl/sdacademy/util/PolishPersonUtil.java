@@ -11,4 +11,12 @@ public class PolishPersonUtil {
     public boolean isPolishFemaleAdult(final String name, final int age) {
         return isPolishFemaleName(name) && age >= ADULT_AGE;
     }
+
+    public boolean isTypicalPolishSurname(final String surname) {
+        return surname.length() > 6 && surname.endsWith("ski");
+    }
+
+    public boolean isWomanWithTypicalPolishSurname(final String name, final String surname) {
+        return false;
+    }
 }
