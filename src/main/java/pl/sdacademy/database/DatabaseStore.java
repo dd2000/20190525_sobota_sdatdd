@@ -15,6 +15,10 @@ public class DatabaseStore {
         this.databaseConnection = databaseConnection;
     }
 
+    public void clean() {
+        data.clear();
+    }
+
     public void addData(final String ...values) {
         if (!databaseConnection.isOpened()) {
             throw new DatabaseStoreException("Connection is not opened. Cannot add data");
