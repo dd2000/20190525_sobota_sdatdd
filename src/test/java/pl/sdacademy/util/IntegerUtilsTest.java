@@ -28,11 +28,21 @@ class IntegerUtilsTest {
         final List<Integer> filteredDigits = integerUtils.filter(toFilter, filters);
 
         //then
-        assertTrue(!filteredDigits.isEmpty());
-        assertEquals(3,filteredDigits.size());
-        assertTrue(filteredDigits.contains(1));
-        assertTrue(filteredDigits.contains(3));
-        assertTrue(filteredDigits.contains(5));
+//        assertTrue(!filteredDigits.isEmpty());  // tu na końcu średnik - (instrukcja)
+//        assertEquals(3,filteredDigits.size());
+//        assertTrue(filteredDigits.contains(1));
+//        assertTrue(filteredDigits.contains(3));
+//        assertTrue(filteredDigits.contains(5));
+// można zastąpić poniższym:
+
+        assertAll(
+            () -> assertTrue(!filteredDigits.isEmpty()),    // tu na końcu przecinek, nie średnik
+            () -> assertEquals(3,filteredDigits.size()),
+            () -> assertTrue(filteredDigits.contains(1)),
+            () -> assertTrue(filteredDigits.contains(3)),
+            () -> assertTrue(filteredDigits.contains(5))
+        );
+
     }
 
-}
+} // class IntegerUtilsTest
