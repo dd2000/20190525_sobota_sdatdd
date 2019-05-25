@@ -7,7 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+
 
 class IntegerUtilsTest {
 
@@ -56,8 +58,7 @@ class IntegerUtilsTest {
         final List<Integer> filteredValues = integerUtils.filterDigitsGreaterThan(toFilter,bound);
 
            // 123456  ->  [ 4, 5, 6]
-        // ??? assertThat(filteredValues).isNotEmpty().hasSize(3).containsExactlyInAnyOrder(4,5,6);
-        assertTrue(1==2);
+        assertThat(filteredValues).isNotEmpty().hasSize(3).containsExactlyInAnyOrder(4,5,6);
     }
 
     @Test
@@ -66,7 +67,7 @@ class IntegerUtilsTest {
 
        final Optional<Integer> actualLastEvenDigit = integerUtils.getLastEvenDigit(value);
 
-       // ??? assertThat(actualLastEvenDigit).isPresent().hasValue(4);
+       assertThat(actualLastEvenDigit).isPresent().hasValue(4);
 
     }
 
