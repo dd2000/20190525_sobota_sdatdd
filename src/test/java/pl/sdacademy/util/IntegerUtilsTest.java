@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,6 +36,8 @@ class IntegerUtilsTest {
 //        assertTrue(filteredDigits.contains(5));
 // można zastąpić poniższym:
 
+
+            // lambdy bez argumentów dla assertAll
         assertAll(
             () -> assertTrue(!filteredDigits.isEmpty()),    // tu na końcu przecinek, nie średnik
             () -> assertEquals(3,filteredDigits.size()),
@@ -42,6 +45,28 @@ class IntegerUtilsTest {
             () -> assertTrue(filteredDigits.contains(3)),
             () -> assertTrue(filteredDigits.contains(5))
         );
+
+    }
+
+    @Test
+    void shouldFilterDigitsGreatherThat(){
+        final int toFilter = 123456;
+        final int bound = 3;
+
+        final List<Integer> filteredValues = integerUtils.filterDigitsGreaterThan(toFilter,bound);
+
+           // 123456  ->  [ 4, 5, 6]
+        // ??? assertThat(filteredValues).isNotEmpty().hasSize(3).containsExactlyInAnyOrder(4,5,6);
+        assertTrue(1==2);
+    }
+
+    @Test
+    void shouldGetLastEvenDigit(){
+       final int value = 12345;
+
+       final Optional<Integer> actualLastEvenDigit = integerUtils.getLastEvenDigit(value);
+
+       // ??? assertThat(actualLastEvenDigit).isPresent().hasValue(4);
 
     }
 
