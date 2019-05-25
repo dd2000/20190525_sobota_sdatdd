@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseStoreTest {
     private static DatabaseConnection databaseConnection;
-    private DatabaseStore databaseStore;
+    private static DatabaseStore databaseStore;
 
     @BeforeAll
     static void setUpTestCase(){
@@ -44,6 +44,25 @@ class DatabaseStoreTest {
         //asercja
         assertIterableEquals(Collections.singletonList(data), databaseStore.getData());
     } // test1 shouldAddData()
+
+    // test2
+    @Test
+    void shouldRemoveDataFromDatabaseStore(){
+
+        //given
+        final String data1 = "Pierwsze dodane";
+        final String data2 = "drugi dodany";
+        final String data3 = "trzeci dodany";
+        databaseStore.addData(data1, data2,data3 );
+        //when
+        databaseStore.removeData(data1,data2);
+        //then
+        //asercja
+        assertIterableEquals(Collections.singletonList(data3), databaseStore.getData());
+
+
+    } // test2 shouldRemoveDataFromDatabaseStore()
+
 
 
 }
