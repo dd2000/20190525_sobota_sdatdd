@@ -57,7 +57,24 @@ class PersonServiceTest3 {
 
         final Optional<Person> person = personService.findByEmail(lockedEmail);
 
-        assertThat(person).isPresent().hasValueSatisfying(p -> p.getEmail().equals(lockedEmail) );
+        assertThat(person).isPresent().
+                hasValueSatisfying(p -> p.getEmail().equals(lockedEmail) );
         verify(personRepository).getPersonList();
     }
+
+    @Test
+    void shouldNotFinfPersonByEmailWhenEmailNotExist(){
+        final String email = "nonono@gmail.com";
+        when(personRepository.getPersonList())
+                .thenReturn(Collections.emptyList());
+
+        final Optional<Person> person = personService.findByEmail(email);
+
+        assertThat(person).isPresent().
+                hasValueSatisfying(p -> p.getEmail().equals(email) );
+
+        verify(personRepository).getPersonList();
+    }
+
+
 }
