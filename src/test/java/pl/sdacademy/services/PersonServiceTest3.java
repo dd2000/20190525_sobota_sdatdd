@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import pl.sdacademy.user.Person;
 
 import java.util.Collections;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,6 +44,20 @@ class PersonServiceTest3 {
         final Person person = personService.getByEmail(lookedEmail);
 
         assertThat(person.getEmail()).isEqualTo(lookedEmail);
+        verify(personRepository).getPersonList();
+    }
+
+    @Test
+    void shouldGetPersonByEmail(){
+        final String lockedEmail = "test@gmail.com";
+        when(personRepository.getPersonList())
+                .thenReturn(Collections.singletonList(
+                        Person.builder().email(lockedEmail).build()
+                ));
+
+        final Optional<Person> person = personService.findByEmail(lockedEmail);
+
+        assertThat(person).isPresent().hasValueSatisfying(p -> p.getEmail().equals(lockedEmail) );
         verify(personRepository).getPersonList();
     }
 }
