@@ -2,7 +2,9 @@ package pl.sdacademy.calculations;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.sdacademy.exceptions.DivisionByZeroException;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest2 {
@@ -80,7 +82,24 @@ class CalculatorTest2 {
         //then
         assertEquals(1,2,"Jeden nie jest równe 2");
 
-    } // shouldAlwaysFail(){
+    } // shouldAlwaysFail()
+
+
+    @Test
+    void shouldThrowExceptionWhenDividingByZero(){
+        //given
+        final double val1 = 2.0;
+        final double val2 = 0.0;
+        //when
+        try{
+            calculator.divide(val1,val2);
+            fail("Exception excepted but not thrown.");
+        } catch (final DivisionByZeroException exp){
+            // przypuszczenia co do wyjątku
+            assertThat(exp.getMessage()).isEqualTo("Canot divide by 0!");
+
+        } // try-catch
+    }
 
 
 
